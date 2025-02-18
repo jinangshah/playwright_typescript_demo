@@ -1,0 +1,20 @@
+{
+  "name": "playwright_typescript_demo",
+  "version": "1.0.0",
+  "description": "Playwright TypeScript Automation Demo",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "Jinang Shah",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.4",
+    "dotenv": "^16.4.7"
+  },
+  "dependencies": {
+    "dotenv-cli": "^8.0.0",
+    "playwright": "^1.50.1",
+    "winston": "^3.17.0"
+  }
+}
