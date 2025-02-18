@@ -7,6 +7,12 @@
   "keywords": [],
   "author": "Jinang Shah",
   "license": "ISC",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --ui",
+    "report": "npx playwright show-report",
+    "test:report": "npx playwright test --reporter=html"
+  },
   "devDependencies": {
     "@playwright/test": "^1.50.1",
     "@types/node": "^22.13.4",

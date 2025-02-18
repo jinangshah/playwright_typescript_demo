@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        REPO_URL = 'https://github.com/your-repo/playwright_project.git'
+        REPO_URL = 'https://github.com/jinangshah/playwright_typescript_demo.git'
         NODE_VERSION = '18'  // Set your Node.js version if needed
     }
 
@@ -15,7 +15,8 @@ pipeline {
 
         stage('Setup Node.js') {
             steps {
-                sh 'node -v || nvm install $NODE_VERSION'
+                sh 'nvm install node && nvm use node'
+                sh 'node -v' 
             }
         }
 
@@ -27,14 +28,14 @@ pipeline {
 
         stage('Run Playwright Tests') {
             steps {
-                sh 'npx playwright install --with-deps'  // Ensures all Playwright dependencies are installed
-                sh 'npm run test'  // Adjust based on your package.json script
+                sh 'npx playwright install --with-deps'  
+                sh 'npm run test'
             }
         }
 
         stage('Generate Report') {
             steps {
-                sh 'npm run report'  // Generates Playwright test report
+                sh 'npm run report' 
             }
         }
 
@@ -47,15 +48,15 @@ pipeline {
 
     post {
         always {
-            echo '🎭 Playwright test execution completed.'
+            echo 'Playwright test execution completed.'
         }
 
         success {
-            echo '✅ Tests passed successfully!'
+            echo 'Tests passed successfully!'
         }
 
         failure {
-            echo '❌ Some tests failed! Check reports for details.'
+            echo 'Some tests failed! Check reports for details.'
         }
     }
 }
